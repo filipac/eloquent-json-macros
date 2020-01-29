@@ -19,7 +19,7 @@ Builder::macro('orWhereJsonDepth', function ($path, $operator = null, $value = n
         $value, $operator, func_num_args() === 2
     );
 
-    return $this->orWhereRaw("JSON_DEPTH($path) $operator :value", [
-        'value' => $value
+    return $this->orWhereRaw("JSON_DEPTH($path) $operator ?", [
+        $value
     ]);
 });
