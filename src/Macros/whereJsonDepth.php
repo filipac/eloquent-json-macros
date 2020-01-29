@@ -19,7 +19,7 @@ Builder::macro('whereJsonDepth', function (string $path, $operator = null, $valu
         $value, $operator, func_num_args() === 2
     );
 
-    return $this->whereRaw("JSON_DEPTH($path) $operator :value", [
-        'value' => $value
+    return $this->whereRaw("JSON_DEPTH($path) $operator ?", [
+        $value
     ]);
 });
